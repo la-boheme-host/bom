@@ -1,0 +1,96 @@
+<!-- 파일 위치: _includes/link-card.html -->
+<a href="{{ include.url }}" target="_blank" rel="noopener noreferrer" class="custom-link-card">
+  <!-- 왼쪽 이미지 영역 -->
+  <div class="link-card-image" style="background-image: url('{{ include.image }}');"></div>
+  
+  <!-- 오른쪽 텍스트 영역 -->
+  <div class="link-card-content">
+    <div class="link-card-title">{{ include.title }}</div>
+    <div class="link-card-desc">{{ include.description }}</div>
+    <div class="link-card-domain">{{ include.domain }}</div>
+  </div>
+</a>
+
+<style>
+  /* 링크 카드 전체 박스 디자인 */
+  .custom-link-card {
+    display: flex;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px; /* 테두리를 살짝 둥글게 */
+    overflow: hidden;
+    text-decoration: none !important; /* 링크 밑줄 제거 */
+    color: inherit !important;
+    margin: 2rem 0; /* 위아래 여백 */
+    background-color: #ffffff;
+    transition: box-shadow 0.2s ease;
+    height: 140px; /* 카드의 고정 높이 */
+  }
+
+  /* 마우스 오버 시 그림자 효과 */
+  .custom-link-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  /* 왼쪽 이미지 박스 디자인 */
+  .link-card-image {
+    width: 160px; /* 이미지 영역 너비 */
+    flex-shrink: 0;
+    background-size: contain; /* 이미지가 잘리지 않게 비율 유지 */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fdfdfd;
+    border-right: 1px solid #e1e4e8; /* 이미지와 텍스트 사이 구분선 */
+  }
+
+  /* 오른쪽 텍스트 컨테이너 */
+  .link-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  /* 제목 스타일 */
+  .link-card-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 글자가 넘치면 ... 처리 */
+    color: #222222;
+  }
+
+  /* 설명 스타일 */
+  .link-card-desc {
+    font-size: 0.95rem;
+    color: #666666;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 최대 2줄까지만 표시 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* 하단 도메인 주소 스타일 */
+  .link-card-domain {
+    font-size: 0.85rem;
+    color: #999999;
+  }
+
+  /* 모바일 화면(작은 화면)에서의 반응형 디자인 */
+  @media (max-width: 600px) {
+    .custom-link-card {
+      flex-direction: column; /* 세로로 배치 */
+      height: auto;
+    }
+    .link-card-image {
+      width: 100%;
+      height: 180px;
+      border-right: none;
+      border-bottom: 1px solid #e1e4e8;
+    }
+  }
+</style>

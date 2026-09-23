@@ -1,0 +1,122 @@
+# 기본 사이트 정보
+title: "봄 - La bohème"
+subtitle: "by @haanss"
+name: "보다."
+description: "한스 보다."
+# 기본 사이트 정보
+
+# 구글 애널리틱스 연동 설정
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-S750MXMR6X" # 정확한 측정 ID로 교체합니다. 쌍따옴표는 유지해 주세요!
+    
+# 작성자(Author) 프로필 정보 (사이드바 프로필 활성화를 위한 필수 데이터)
+author:
+  name: "haanss"
+  avatar: "/assets/images/bio-photo.jpg" # [수정 필요] 실제 아바타 이미지 경로로 변경하세요.
+  bio: "마음은 더 가까이"
+  location: "Seoul, South Korea" # 원하는 지역으로 수정 가능합니다.
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/la-boheme-host"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-square-x-twitter"
+      url: "https://twitter.com/la-boheme-host"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/haanss"
+
+# URL 및 퍼머링크 설정
+url: "https://bom.la-bohe.me"
+baseurl: ""
+
+# 포스트 주소 형식 지정
+permalink: /:title/
+search: true
+
+# GitHub Pages 원격 테마 설정
+remote_theme: "mmistakes/minimal-mistakes@4.28.1"
+minimal_mistakes_skin: "contrast"
+
+# 플러그인 설정
+plugins:
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-remote-theme
+  - jekyll-archives # 주의: GitHub Pages 기본 빌드 미지원. GitHub Actions 배포 필요.
+  - jekyll-paginate # 플러그인 추가
+
+# --- 페이지네이션 설정 추가 ---
+paginate: 10
+paginate_path: "/posts/page:num/"
+
+# 네비게이션 및 페이지 기본 레이아웃 설정
+defaults:
+  # 일반 pages 영역
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "single"
+      author_profile: false         # 프로필 숨김
+      sidebar:                      # 사이드바 설정 추가
+        nav: "docs"                 # navigation.yml의 docs 그룹을 불러옴
+      show_date: true
+      date_format: "%Y-%m-%d"
+      
+  # 포스트 _posts 영역
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: false         # 프로필 숨김
+      sidebar:                      # 사이드바 설정 추가
+        nav: "docs"                 # navigation.yml의 docs 그룹을 불러옴
+      read_time: true
+      show_date: true
+      date_format: "%Y-%m-%d"
+      comments: false
+      share: true
+      related: true
+      header:
+        overlay_color: "#000"
+        overlay_filter: "0.3"
+  
+
+# 푸터 링크 설정
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-square-x-twitter"
+      url: "https://twitter.com/la-boheme-host"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/la-boheme-host"
+      rel: "me"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/la-boheme-host"
+
+# 카테고리 및 태그 아카이브 설정
+category_archive:
+  type: jekyll-archives
+  path: /categories/
+tag_archive:
+  type: jekyll-archives
+  path: /tags/
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive-taxonomy
+    tag: archive-taxonomy
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/

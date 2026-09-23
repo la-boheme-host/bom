@@ -1,0 +1,65 @@
+<!-- 구글 애드센스 승인 및 광고 송출 코드 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8868289380135841"
+     crossorigin="anonymous"></script>
+
+<!-- 네이버 서치어드바이저 소유권 확인 -->
+<meta name="naver-site-verification" content="187fdf62e29efea92a08a634b20a8cc373e7b98f" />
+
+<!-- 🌟 블로그 전체 레이아웃 완벽 통일 및 반응형 CSS 🌟 -->
+<style>
+  /* 1. PC 데스크탑 (1025px 이상 넓은 화면) */
+  @media (min-width: 1025px) {
+    /* 사이드바 폭 170px 고정 */
+    .sidebar {
+      width: 170px !important;
+    }
+    
+    /* 🌟 home(최근 포스팅), category, tag 등 모든 주요 레이아웃을 빠짐없이 추가합니다 🌟 */
+    .layout--single .page,
+    .layout--archive .page,
+    .layout--page .page,
+    .layout--home .page,
+    .layout--category .page,
+    .layout--tag .page {
+      /* 전체(100%) - 사이드바(170px) - 여백(40px) = 210px 제외 */
+      width: calc(100% - 210px) !important; 
+      float: left !important; 
+      margin-left: 40px !important; 
+      padding-right: 0 !important; 
+    }
+    
+    /* 본문 텍스트 최대 넓이 860px 제한 (모든 레이아웃 적용) */
+    .layout--single .page__inner-wrap,
+    .layout--archive .page__inner-wrap,
+    .layout--page .page__inner-wrap,
+    .layout--home .page__inner-wrap,
+    .layout--category .page__inner-wrap,
+    .layout--tag .page__inner-wrap {
+      max-width: 860px !important;
+    }
+  }
+
+  /* 2. 태블릿 및 모바일 (1024px 이하 좁은 화면) */
+  @media (max-width: 1024px) {
+    .layout--single .page,
+    .layout--archive .page,
+    .layout--page .page,
+    .layout--home .page,
+    .layout--category .page,
+    .layout--tag .page {
+      width: 100% !important; 
+      float: none !important;
+      margin-left: 0 !important; 
+      padding-right: 0 !important;
+    }
+    
+    .layout--single .page__inner-wrap,
+    .layout--archive .page__inner-wrap,
+    .layout--page .page__inner-wrap,
+    .layout--home .page__inner-wrap,
+    .layout--category .page__inner-wrap,
+    .layout--tag .page__inner-wrap {
+      max-width: 100% !important;
+    }
+  }
+</style>

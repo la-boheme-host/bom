@@ -1,0 +1,53 @@
+# .github/workflows/jekyll.yml
+name: Deploy Jekyll site to Pages
+
+# 1. 언제 이 자동화 작업이 실행될지 설정합니다.
+on:
+  push:
+    branches: ["main"]  # main 브랜치에 코드가 push 될 때마다 실행됩니다.
+  workflow_dispatch:    # 깃허브 웹사이트에서 수동으로 버튼을 눌러 실행할 수 있게 해줍니다.
+
+# 2. 깃허브 가상 컴퓨터가 페이지를 수정할 수 있도록 권한을 부여합니다.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 3. 여러 번 push가 일어날 경우 충돌을 방지하기 위한 설정입니다.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # 4. 블로그 코드를 HTML로 변환(Build)하는 작업입니다.
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2' # 안정적인 루비 3.2 버전을 사용합니다.
+          bundler-cache: true # 빌드 속도를 높이기 위해 캐시를 사용합니다.
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+  # 5. 변환된 HTML 파일을 실제 웹사이트에 배포(Deploy)하는 작업입니다.
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

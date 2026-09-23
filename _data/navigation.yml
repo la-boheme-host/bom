@@ -1,0 +1,77 @@
+# 상단 메인 네비게이션 설정
+main:
+  - title: "Poster View"
+    url: /gallery/
+  - title: "Posts"
+    url: /posts/
+  - title: "Categories"
+    url: /categories/
+  - title: "Tags"
+    url: /tags/
+  - title: "About"
+    url: /about/
+
+docs:
+  - title: "Poster gallery"
+    url: /gallery/
+  - title: "Film"
+    url: /categories/Film/
+    children:
+      - title: "액션"
+        url: /categories/Action/
+      - title: "코미디"
+        url: /categories/Comedy/
+      - title: "드라마"
+        url: /categories/Drama/
+      - title: "스릴러"
+        url: /categories/Thriller/
+      - title: "공포"
+        url: /categories/Horror/
+      - title: "멜로"
+        url: /categories/Romance/
+      - title: "SF"
+        url: /categories/SF/
+      - title: "판타지"
+        url: /categories/Fantasy/
+      - title: "애니"
+        url: /categories/Animation/
+      - title: "리메이크"
+        url: /categories/Remake/
+          
+    children:
+  - title: "OTT"
+    url: /categories/OTT/
+    children:
+      - title: "Netflix"
+        url: /categories/넷플릭스/
+      - title: "Disney+"
+        url: /categories/디즈니플러스/
+      - title: "Wavve"
+        url: /categories/티빙/
+      - title: "쿠팡플레이"
+        url: /categories/쿠팡플레이/
+      - title: "티빙"
+        url: /categories/티빙
+      - title: "아마존프라임"
+        url: /categories/아마존프라임//  
+  - title: "영화"
+    url: /categories/film/
+  - title: "지역별"
+    children:
+      - title: "한국"
+        url: /categories/한국영화/
+      - title: "미국"
+        url: /categories/미국영화/
+      - title: "일본"
+        url: /categories/일본영화/
+      - title: "중국"
+        url: /categories/중국영화/
+      - title: "유럽"
+        url: /categories/유럽영화/
+        
+  
+
+        
+  - title: 예고편
+    url: /categories/예고편/
+    
