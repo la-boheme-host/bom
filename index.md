@@ -38,7 +38,7 @@ author_profile: false
     background-color: #000000;
     overflow: hidden; 
     /* 🌟 1. 전체 카루셀 영역 높이를 680px로 강제 고정합니다 */
-    height: 680px;
+    height: 657px;
   }
 
   .carousel-track {
