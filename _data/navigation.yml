@@ -43,11 +43,11 @@ docs:
     url: /categories/OTT/
     children:
       - title: "Netflix"
-        url: /categories/넷플릭스/
+        url: /categories/netflix/
       - title: "Disney+"
-        url: /categories/디즈니플러스/
+        url: /categories/disney+/
       - title: "Wavve"
-        url: /categories/티빙/
+        url: /categories/wavve/
       - title: "쿠팡플레이"
         url: /categories/쿠팡플레이/
       - title: "티빙"
