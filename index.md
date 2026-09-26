@@ -37,14 +37,11 @@ author_profile: false
     margin-bottom: 2rem;
     background-color: #000000;
     overflow: hidden; 
-    /* 🌟 1. 전체 카루셀 영역 높이를 680px로 강제 고정합니다 */
-    height: 657px;
   }
 
   .carousel-track {
     display: flex;
     width: 300%; 
-    /* 🌟 2. 부모의 680px 높이를 상속받아 꽉 채웁니다 */
     height: 100%;
     transition: transform 0.6s ease-in-out; 
   }
@@ -52,10 +49,8 @@ author_profile: false
   .carousel-slide {
     width: 33.3333%;
     position: relative;
-    padding: 2.5rem 0;
     display: flex;
-    align-items: center; /* 🌟 3. 고정된 680px 높이 내에서 내부 요소를 수직 중앙에 배치합니다 */
-    /* padding: 2.5rem 0; 삭제됨 (높이가 고정되었으므로 패딩으로 조절하지 않음) */
+    align-items: center; 
   }
 
   .carousel-slide::before {
@@ -74,7 +69,7 @@ author_profile: false
   .custom-hero-inner {
     position: relative;
     z-index: 2;
-    width: 100%; /* flex 자식으로서 너비 보장 */
+    width: 100%;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1em;
@@ -84,15 +79,12 @@ author_profile: false
     gap: 8%;
   }
 
-  /* 🌟 텍스트 상단 여백 설정 🌟 */
   .custom-hero-text { 
     flex: 1.3; 
     text-align: left; 
-    align-self: flex-start; /* 텍스트 상자를 위로 끌어올립니다 */
-    margin-top: 60px; /* 원하는 상단 여백 수치로 조절하세요 */
+    align-self: flex-start;
   }
 
-  /* 🌟 카테고리 텍스트 디자인 (붉은색) 🌟 */
   .custom-hero-category {
     display: inline-block;
     font-size: 1rem;
@@ -109,6 +101,16 @@ author_profile: false
     line-height: 1.3; font-weight: 800; letter-spacing: -0.5px;
     text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.9);
   }
+
+  .custom-hero-title-link {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    transition: opacity 0.2s ease;
+  }
+  .custom-hero-title-link:hover {
+    opacity: 0.85;
+  }
+
   .custom-hero-text p {
     font-size: 1.15rem; line-height: 1.6; margin-bottom: 2rem; color: #ffffff;
     text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
@@ -130,6 +132,12 @@ author_profile: false
     transform: translateX(-30px); 
   }
 
+  .custom-hero-visual a {
+    display: block;
+    width: 100%;
+    max-width: 380px;
+  }
+
   .cd-case-img {
     width: 100%; 
     max-width: 380px; 
@@ -137,6 +145,12 @@ author_profile: false
     object-fit: cover;
     border-radius: 5px; 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .custom-hero-visual a:hover .cd-case-img {
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
   }
 
   .carousel-arrow {
@@ -175,24 +189,64 @@ author_profile: false
   }
   .dot.active { background-color: #ffffff; transform: scale(1.2); }
 
+  /* 🌟 데스크톱 전용 스타일 (769px 이상일 때만 높이 680px 고정) 🌟 */
+  @media (min-width: 769px) {
+    .custom-hero-carousel {
+      height: 680px;
+    }
+    .custom-hero-text {
+      margin-top: 60px;
+    }
+  }
+
+  /* 🌟 모바일 반응형 스타일 (상하/좌우 여백 축소 및 포스터 확대) 🌟 */
   @media (max-width: 768px) {
+    .custom-hero-carousel {
+      height: auto;
+    }
+    .carousel-slide {
+      padding: 1.5rem 0 2rem 0; /* 🌟 상하 여백 50% 축소 */
+    }
     .custom-hero-inner { 
-      flex-direction: column; padding: 0 2em; 
+      flex-direction: column; 
+      padding: 0 0.8em; /* 🌟 좌우 여백 축소로 포스터 가로폭 확보 */
       align-items: center; 
     }
     .custom-hero-text { 
-      order: 2; text-align: center; 
-      margin-top: 0; /* 🌟 모바일에서는 상단 여백을 초기화하여 디자인 붕괴 방지 */
+      order: 2; 
+      text-align: center; 
+      margin-top: 0;
+      width: 100%;
+    }
+    .custom-hero-text h1 {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+    .custom-hero-text p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem; /* 🌟 요약문 아래 여백 감소 */
     }
     .custom-hero-visual { 
-      order: 1; justify-content: center; margin-bottom: 3rem; 
+      order: 1; 
+      justify-content: center; 
+      margin-bottom: 0.8rem; /* 🌟 포스터와 텍스트 사이 여백 축소 */
       transform: translateX(0);
+      width: 100%;
+    }
+    .custom-hero-visual a {
+      max-width: 280px; /* 🌟 포스터 크기 확대 (기존 240px -> 280px) */
+    }
+    .cd-case-img {
+      max-width: 280px;
+    }
+    .carousel-dots {
+      bottom: 0.5rem; /* 🌟 하단 도트 여백 축소 */
     }
   }
 </style>
 
 
-<!-- 3. HTML 카루셀 구조 🌟(카테고리 2단 출력 로직 적용)🌟 -->
+<!-- 3. HTML 카루셀 구조 -->
 <div class="custom-hero-carousel">
   <div class="carousel-track" id="track">
     
@@ -200,19 +254,22 @@ author_profile: false
     <div class="carousel-slide" style="--bg-img: url('{{ img1 | relative_url }}')">
       <div class="custom-hero-inner">
         <div class="custom-hero-text">
-          <!-- 🌟 카테고리가 2개 이상일 경우 [0]/[1] 형태로 출력 -->
           {% if post1.categories.size > 1 %}
             <span class="custom-hero-category">{{ post1.categories[0] }}/{{ post1.categories[1] }}</span>
           {% elsif post1.categories.size > 0 %}
             <span class="custom-hero-category">{{ post1.categories[0] }}</span>
           {% endif %}
           
-          <h1>{{ post1.title }}</h1>
+          <h1>
+            <a href="{{ post1.url | relative_url }}" class="custom-hero-title-link">{{ post1.title }}</a>
+          </h1>
           <p>{{ post1.excerpt | strip_html | truncate: 100 }}</p>
           <a href="{{ post1.url | relative_url }}" class="custom-hero-btn">Read more</a>
         </div>
         <div class="custom-hero-visual">
-          <img src="{{ img1 | relative_url }}" alt="{{ post1.title }}" class="cd-case-img">
+          <a href="{{ post1.url | relative_url }}">
+            <img src="{{ img1 | relative_url }}" alt="{{ post1.title }}" class="cd-case-img">
+          </a>
         </div>
       </div>
     </div>
@@ -227,12 +284,16 @@ author_profile: false
             <span class="custom-hero-category">{{ post2.categories[0] }}</span>
           {% endif %}
           
-          <h1>{{ post2.title }}</h1>
+          <h1>
+            <a href="{{ post2.url | relative_url }}" class="custom-hero-title-link">{{ post2.title }}</a>
+          </h1>
           <p>{{ post2.excerpt | strip_html | truncate: 100 }}</p>
           <a href="{{ post2.url | relative_url }}" class="custom-hero-btn">Read more</a>
         </div>
         <div class="custom-hero-visual">
-          <img src="{{ img2 | relative_url }}" alt="{{ post2.title }}" class="cd-case-img">
+          <a href="{{ post2.url | relative_url }}">
+            <img src="{{ img2 | relative_url }}" alt="{{ post2.title }}" class="cd-case-img">
+          </a>
         </div>
       </div>
     </div>
@@ -247,12 +308,16 @@ author_profile: false
             <span class="custom-hero-category">{{ post3.categories[0] }}</span>
           {% endif %}
           
-          <h1>{{ post3.title }}</h1>
+          <h1>
+            <a href="{{ post3.url | relative_url }}" class="custom-hero-title-link">{{ post3.title }}</a>
+          </h1>
           <p>{{ post3.excerpt | strip_html | truncate: 100 }}</p>
           <a href="{{ post3.url | relative_url }}" class="custom-hero-btn">Read more</a>
         </div>
         <div class="custom-hero-visual">
-          <img src="{{ img3 | relative_url }}" alt="{{ post3.title }}" class="cd-case-img">
+          <a href="{{ post3.url | relative_url }}">
+            <img src="{{ img3 | relative_url }}" alt="{{ post3.title }}" class="cd-case-img">
+          </a>
         </div>
       </div>
     </div>

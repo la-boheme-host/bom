@@ -20,16 +20,16 @@ docs:
     children:
       - title: "Netflix"
         url: /categories/netflix/
-      - title: "Disney+"
-        url: /categories/disney+/
+      - title: "DisneyPlus"
+        url: /categories/disneyPlus/
       - title: "Wavve"
         url: /categories/wavve/
       - title: "쿠팡플레이"
         url: /categories/쿠팡플레이/
       - title: "티빙"
-        url: /categories/티빙
+        url: /categories/티빙/
       - title: "아마존프라임"
-        url: /categories/아마존프라임//  
+        url: /categories/아마존프라임/ 
   - title: "장르별"
     url: /categories/Film/
     children:
