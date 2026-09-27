@@ -20,8 +20,8 @@ docs:
     children:
       - title: "Netflix"
         url: /categories/netflix/
-      - title: "DisneyPlus"
-        url: /categories/disneyPlus/
+      - title: "Disneyplus"
+        url: /categories/disney/
       - title: "Wavve"
         url: /categories/wavve/
       - title: "쿠팡플레이"
